@@ -1,4 +1,4 @@
-package ru.vsu.amm.avl_tree;
+package lab4.ru.vsu.amm.avl_tree;
 
 import org.junit.Assert;
 import org.junit.Before;

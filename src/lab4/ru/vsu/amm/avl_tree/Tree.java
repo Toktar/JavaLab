@@ -1,4 +1,4 @@
-package ru.vsu.amm.avl_tree;
+package lab4.ru.vsu.amm.avl_tree;
 
 public class Tree<T extends Comparable<T>, U> {
     private Node<T, U> root;
