@@ -2,9 +2,7 @@ package lab5;
 
 import lab5.Objects.*;
 
-/**
- * Created by Alenor on 10.03.2017.
- */
+
 public class Main {
 
     public static void main(String[] args) {

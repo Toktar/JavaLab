@@ -2,9 +2,8 @@ package lab5.Objects;
 
 import lab5.Annotation.Autowired;
 
-/**
- * Created by Alenor on 14.03.2017.
- */
+
+
 public class PlainEngine {
 
     private String model;

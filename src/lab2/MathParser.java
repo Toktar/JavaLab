@@ -2,9 +2,7 @@ package lab2;
 
 import java.util.HashMap;
 
-/**
- * Created by toktar.
- */
+
 public class MathParser {
 
     private static HashMap<String, Double> var;

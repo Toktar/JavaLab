@@ -2,9 +2,7 @@ package lab3;
 
 import java.util.*;
 
-/**
- * Created by Kida on 18.02.2017.
- */
+
 public class Lab3 {
 
     final int listLength = 10000000;

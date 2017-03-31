@@ -6,9 +6,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Alenor on 10.03.2017.
- */
+
 public final class BeanFactory {
 
     private static Map<String, Object> beanMap = new HashMap<>();

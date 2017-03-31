@@ -2,9 +2,7 @@ package lab5.Objects;
 
 import lab5.Annotation.Autowired;
 
-/**
- * Created by Alenor on 10.03.2017.
- */
+
 public class Car {
 
     @Autowired
