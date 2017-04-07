@@ -15,10 +15,12 @@ public class Tree<T extends Comparable<T>, U> {
         return balance(currentRoot);
     }
 
-    Tree<T, U> add (T key, U value) {
+    public Tree<T, U> add (T key, U value) {
         Node<T, U> newNode = new Node<>(key, value );
         return add(newNode);
     }
+
+
 
     private Tree<T, U> add (Node<T, U> newNode) {
         if (newNode != null && newNode.getKey() != null) {

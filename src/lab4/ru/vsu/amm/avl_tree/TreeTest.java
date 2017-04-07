@@ -10,6 +10,7 @@ public class TreeTest {
     @Before
     public void init () {
         tester = new Tree<>();
+
         for (int i = 0; i < 5000; i++) {
             tester.add(i, null);
         }

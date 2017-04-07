@@ -1,17 +1,9 @@
 package lab2;
 
-import java.util.HashMap;
 
 
 public class MathParser {
 
-    private static HashMap<String, Double> var;
-
-    public MathParser() {
-        var = new HashMap<>();
-        setVariable("pi",Math.PI);
-        setVariable("e",Math.E);
-    }
 
 
     /**
@@ -19,32 +11,12 @@ public class MathParser {
      * @param varName имя переменной
      * @param varValue значение переменной
      */
+/*
     public static void setVariable(String varName, Double varValue) {
         var.put(varName, varValue);
     }
+*/
 
-    /**
-     * Заменяет значение существующей переменной
-     * @param varName имя переменной
-     * @param varValue значение переменной
-     */
-    public void replaceVariable(String varName, Double varValue) {
-        var.replace(varName, varValue);
-    }
-
-    /**
-     *
-     * @param varName
-     * @return Возвращает значение переменной varName
-     * @throws Exception ругаемся на отсутствие переменной
-     */
-    public Double getVariable(String varName) throws Exception {
-        if(!var.containsKey(varName)) {
-            throw new Exception("Error:Try get unexists "+
-                    "variable '"+varName+"'" );
-        }
-        return var.get(varName);
-    }
 
     /**
      * Парсим математическое выражение
@@ -66,23 +38,13 @@ public class MathParser {
     private Result binaryFunc(String s) throws Exception{
 
         Result cur;
-
-        if(s.charAt(0) == '~'){
-            cur = plusMinus(s.substring(1));
-
-            cur.acc = ~ (int)cur.acc;
-            return cur;
-        }
-
         cur = plusMinus(s);
         double acc = cur.acc;
 
         cur.rest = skipSpaces(cur.rest);
 
         while(cur.rest.length() > 0){
-            if(!(cur.rest.charAt(0) == '&' ||
-                    cur.rest.charAt(0) == '|' ||
-                    cur.rest.charAt(0) == '~')) break;
+            if(!(cur.rest.charAt(0) == '&' || cur.rest.charAt(0) == '|' || cur.rest.charAt(0) == '~')) break;
 
             char sign = cur.rest.charAt(0);
             String next = cur.rest.substring(1);
@@ -225,7 +187,7 @@ public class MathParser {
                     return processFunction(f, r);
                 }
             } else { // иначе - это переменная
-                return new Result(getVariable(f), s.substring(f.length()));
+               // return new Result(getVariable(f), s.substring(f.length()));
             }
         }
         return num(s);
@@ -272,30 +234,8 @@ public class MathParser {
         switch (func) {
             case "sin":
                 return new Result(Math.sin(r.acc), r.rest);
-            case "sinh": // гиперболический синус
-                return new Result(Math.sinh(r.acc), r.rest);
             case "cos":
                 return new Result(Math.cos(r.acc), r.rest);
-            case "cosh": // гиперболический косинус
-                return new Result(Math.cosh(r.acc), r.rest);
-            case "tan":
-                return new Result(Math.tan(r.acc), r.rest);
-            case "tanh": // гиперболический тангенс
-                return new Result(Math.tanh(r.acc), r.rest);
-            case "ctg":
-                return new Result(1/Math.tan(r.acc), r.rest);
-            case "sec": // секанс
-                return new Result(1/Math.cos(r.acc), r.rest);
-            case "cosec": // косеканс
-                return new Result(1/Math.sin(r.acc), r.rest);
-            case "abs":
-                return new Result(Math.abs(r.acc), r.rest);
-            case "ln":
-                return new Result(Math.log(r.acc), r.rest);
-            case "lg": // десятичный логарифм
-                return new Result(Math.log10(r.acc), r.rest);
-            case "sqrt":
-                return new Result(Math.sqrt(r.acc), r.rest);
             default:
                 throw new Exception("function '" + func + "' is not defined");
         }

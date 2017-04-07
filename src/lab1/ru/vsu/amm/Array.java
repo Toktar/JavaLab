@@ -92,6 +92,9 @@ public class Array<T> implements IArray<T> {
 
     @Override
     public Array<T> remove (int index) {
+        if (index < 0 || length <= index) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
         for (int i = index; i < length - 1; i++) {
             a[i] = a[i + 1];
         }
